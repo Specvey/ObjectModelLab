@@ -1,9 +1,5 @@
 // ObjectModelLab\src\model\index.js
 
-// Soit faire un export const des class
-
-// Soit créer des fonctions 
-
 class Data
 {
 	constructor(donnees)
@@ -97,6 +93,11 @@ class Temperature extends Sensor
 		super(id, name, data);
 	}
 
+  getType()
+  {
+    return 'TEMPERATURE';
+  }
+
 	toString()
   	{
   		let s='TEMPERATURE\n'+super.toString();
@@ -110,6 +111,11 @@ class Humidity extends Sensor
 	{
 		super(id, name, data);
 	}
+
+  getType()
+  {
+    return 'HUMIDITY';
+  }
 
 	toString()
   	{
@@ -125,6 +131,11 @@ class Light extends Sensor
 		super(id, name, data);
 	}
 
+  getType()
+  {
+    return 'LIGHT';
+  }
+
 	toString()
   	{
   		let s='LIGHT\n'+super.toString();
@@ -139,6 +150,11 @@ class Switch extends Sensor
 		super(id, name, data);
 	}
 
+  getType()
+  {
+    return 'SWITCH';
+  }
+
 	toString()
   	{
   		let s='SWITCH\n'+super.toString();
@@ -152,6 +168,11 @@ class Door extends Sensor
 	{
 		super(id, name, data);
 	}
+
+  getType()
+  {
+    return 'DOOR';
+  }
 
 	toString()
   	{
@@ -168,31 +189,108 @@ class Fan_Speed extends Sensor
     super(id, name, data);
   }
 
+  getType()
+  {
+    return 'FAN_SPEED';
+  }
+
   toString()
     {
       let s='FAN_SPEED\n'+super.toString();
       return s;
     }
 }
-/*
-let data = new Data(0);
 
-let temp = new Temperature('#0123', 'JeSuisUneT',data);
 
-console.log(temp.toString());
-*/
+export const temperatureTestId = (donnees) => {
+  let temperature = new Temperature(donnees['id'],donnees['name'],donnees['data']);
+  return temperature.id;
+};
 
-export const temperatureTest = (donnees) => {
+export const temperatureTestNom = (donnees) => {
+  let temperature = new Temperature(donnees['id'],donnees['name'],donnees['data']);
+  return temperature.name;
+};
+
+export const temperatureTestValeurs = (donnees) => {
+  let temperature = new Temperature(donnees['id'],donnees['name'],donnees['data']);
+  return temperature.data.values;
+};
+
+export const temperatureTestLabels = (donnees) => {
+  let temperature = new Temperature(donnees['id'],donnees['name'],donnees['data']);
+  return temperature.data.labels;
+};
+
+export const temperatureTestType = (donnees) => {
+  let temperature = new Temperature(donnees['id'],donnees['name'],donnees['data']);
+  return temperature.getType();
+};
+
+export const temperatureTestToString = (donnees) => {
   let temperature = new Temperature(donnees['id'],donnees['name'],donnees['data']);
   return temperature.toString();
 };
 
-export const porteTest = (donnees) => {
+
+
+export const porteTestId = (donnees) => {
+  let porte = new Door(donnees['id'],donnees['name'],donnees['data']);
+  return porte.id;
+};
+
+export const porteTestNom = (donnees) => {
+  let porte = new Door(donnees['id'],donnees['name'],donnees['data']);
+  return porte.name;
+};
+
+export const porteTestValeurs = (donnees) => {
+  let porte = new Door(donnees['id'],donnees['name'],donnees['data']);
+  return porte.data.values;
+};
+
+export const porteTestLabels = (donnees) => {
+  let porte = new Door(donnees['id'],donnees['name'],donnees['data']);
+  return porte.data.labels;
+};
+
+export const porteTestType = (donnees) => {
+  let porte = new Door(donnees['id'],donnees['name'],donnees['data']);
+  return porte.getType();
+};
+
+export const porteTestToString = (donnees) => {
   let porte = new Door(donnees['id'],donnees['name'],donnees['data']);
   return porte.toString();
 };
 
-export const ventilateurTest = (donnees) => {
+
+export const ventilateurTestId = (donnees) => {
+  let ventilateur = new Fan_Speed(donnees['id'],donnees['name'],donnees['data']);
+  return ventilateur.id;
+};
+
+export const ventilateurTestNom = (donnees) => {
+  let ventilateur = new Fan_Speed(donnees['id'],donnees['name'],donnees['data']);
+  return ventilateur.name;
+};
+
+export const ventilateurTestValeurs = (donnees) => {
+  let ventilateur = new Fan_Speed(donnees['id'],donnees['name'],donnees['data']);
+  return ventilateur.data.values;
+};
+
+export const ventilateurTestLabels = (donnees) => {
+  let ventilateur = new Fan_Speed(donnees['id'],donnees['name'],donnees['data']);
+  return ventilateur.data.labels;
+};
+
+export const ventilateurTestType = (donnees) => {
+  let ventilateur = new Fan_Speed(donnees['id'],donnees['name'],donnees['data']);
+  return ventilateur.getType();
+};
+
+export const ventilateurTestToString = (donnees) => {
   let ventilateur = new Fan_Speed(donnees['id'],donnees['name'],donnees['data']);
   return ventilateur.toString();
 };
